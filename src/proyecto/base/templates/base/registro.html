@@ -1,0 +1,26 @@
+{% extends 'base/principal.html' %}
+
+{% block content %}
+
+    <div class="barra-superior">
+        <h1>Ingresa tus datos para crear una cuenta</h1>
+    </div>
+
+    <div class="tarjeta">
+        <form method="POST">
+            {% csrf_token %}
+            <!--{{form.as_p}}-->
+            <label style="margin-top: 16px">{{form.username.label}}:</label>
+            {{form.username}}
+            <label style="margin-top: 16px">{{form.password1.label}}:</label>
+            {{form.password1}}
+            <label style="margin-top: 16px">{{form.password2.label}}:</label>
+            {{form.password2}}
+
+            <input class="boton" style="margin-top: 16px" type="submit" value="Crear Cuenta">
+        </form>
+
+        <p style="margin-left: 15px">¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia Sesión</a></p>
+    </div>
+
+{% endblock content %}
